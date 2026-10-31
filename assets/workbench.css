@@ -1,0 +1,94 @@
+/* Toneymiller workstation chrome. Model equations and original SVGs stay upstream. */
+:root{--wb-ink:#edf5fb;--wb-muted:#8fa7bd;--wb-line:#22394d;--wb-cyan:#51e4d7;--wb-surface:#0c1927;--wb-mono:"Cascadia Code",Consolas,monospace}
+html,body{background:#07111b;color:var(--wb-ink);color-scheme:dark}
+body{font-family:Inter,"Segoe UI","Microsoft YaHei",sans-serif}
+.deck-shell{background:radial-gradient(ellipse at 20% -10%,#15334955,transparent 50%),#07111b}
+.wb-skip{position:fixed;top:-100px;left:16px;z-index:1000;padding:10px 16px;background:var(--wb-cyan);color:#06151f;border-radius:6px;font-weight:700}
+.wb-skip:focus{top:10px}
+.wb-masthead{display:flex;align-items:center;justify-content:space-between;gap:20px;flex:0 0 auto;min-height:82px;padding:17px 25px 16px;border-bottom:1px solid var(--wb-line);background:linear-gradient(110deg,#102337bb,#0a1725dd 75%)}
+.wb-brand{display:flex;align-items:center;gap:13px;min-width:0;text-decoration:none}
+.wb-monogram{display:grid;place-items:center;width:43px;height:43px;flex:none;border:1px solid #3b7a84;border-radius:12px;background:linear-gradient(145deg,#193b49,#0d2130);box-shadow:inset 0 1px 0 #b2fff71a;color:var(--wb-cyan)}
+.wb-monogram svg{width:29px;height:29px;filter:none}
+.wb-wordmark{display:flex;flex-direction:column;gap:3px;min-width:0}
+.wb-eyebrow{font:600 10px/1.2 var(--wb-mono);letter-spacing:1.6px;color:#82b7c4}
+.wb-title{font-size:20px;line-height:1.3;letter-spacing:.3px;font-weight:650;color:var(--wb-ink)}
+.wb-masthead-links{display:flex;align-items:center;gap:20px;flex:none;font-size:12px}
+.wb-masthead-links a{color:#a6bbce;text-decoration:none;white-space:nowrap}
+.wb-masthead-links a:hover{color:var(--wb-cyan)}
+.wb-repo{border:1px solid #365269;border-radius:7px;padding:8px 12px;background:#152b3e77;color:#d9e9f4!important}
+.wb-repo span{font-family:var(--wb-mono);color:#7d9bb4;margin-right:6px}
+.wb-config-actions{display:flex;align-items:center;gap:6px}
+.wb-config-actions:empty{display:none}
+.wb-config-actions button{background:#10293b;border:1px solid #34566b;border-radius:6px;color:#a9d7df;font:11px/1.4 "Segoe UI","Microsoft YaHei",sans-serif;min-height:32px;padding:6px 9px;cursor:pointer;white-space:nowrap}
+.wb-config-actions button:hover{border-color:#51d5cd;background:#173947;color:#e4fffc}
+.deck-bar{gap:10px 16px;padding:11px 23px 10px;background:#0c1b2a;border-color:var(--wb-line);min-height:58px;flex-wrap:wrap}
+.deck-tabs{gap:5px;flex-wrap:nowrap;max-width:100%;overflow-x:auto;scrollbar-width:thin;scroll-padding-inline:6px}
+.deck-bar button{min-height:33px;font-size:12px;padding:8px 11px;white-space:nowrap;border-radius:6px;transition:background .15s,border-color .15s,color .15s}
+.deck-bar [role=tab]{border:1px solid #24394c;background:#0a1724;color:#9bb2c7}
+.deck-bar [role=tab]:hover{background:#162c3f;color:#dfeaf3;border-color:#3c5970}
+.deck-bar [role=tab][aria-selected=true]{background:#143b43;border-color:#3a8d8d;color:#8df3e8;box-shadow:inset 0 -2px 0 #51e4d733}
+.model-choice{gap:8px;font-size:11px;color:var(--wb-muted)}
+.model-choice select{padding:8px 28px 8px 9px;font-size:12px;max-width:221px;background:#091725;border-color:#2c465b;min-height:34px}
+.shape-guide-bar{padding:7px 23px;background:#0c1c2a;border-color:#20394b;font-size:11px;gap:12px}
+.shape-guide-bar strong{font:600 10px var(--wb-mono);letter-spacing:.3px;color:#e8c484}
+.shape-guide-bar p{color:#90a9be;font-family:var(--wb-mono);font-size:10px}
+.shape-guide-bar button{padding:5px 9px;font-size:10px;border-color:#2d4b60;background:#102536}
+.wb-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px 16px;flex:0 0 auto;padding:9px 23px;border-bottom:1px solid var(--wb-line);background:#091725;min-height:54px}
+.wb-tools-left,.wb-zoom,.wb-search{display:flex;align-items:center;gap:6px;min-width:0}
+.wb-tools-left{gap:15px}
+.wb-section-caption{font:600 10px var(--wb-mono);letter-spacing:1.4px;color:#6e8aa3;white-space:nowrap}
+.wb-toolbar button,.wb-help-dialog button{min-height:31px;min-width:31px;border:1px solid #2d455a;border-radius:6px;background:#102336;color:#bdd0df;padding:5px 10px;font:12px/1.5 "Segoe UI","Microsoft YaHei",sans-serif;cursor:pointer;white-space:nowrap}
+.wb-toolbar button:hover,.wb-help-dialog button:hover{border-color:#59c9c4;color:#e6ffff;background:#183744}
+.wb-toolbar button:disabled{opacity:.35;cursor:default}
+.wb-toolbar .wb-zoom-step{font:18px/1 var(--wb-mono);padding:4px 7px;min-width:31px}
+.wb-toolbar button[aria-pressed=true]{background:#143b43;border-color:#3f8389;color:#8df3e8}
+.wb-zoom-output{min-width:42px;text-align:center;color:#c4dbe9;font:11px var(--wb-mono);font-variant-numeric:tabular-nums}
+.wb-search{position:relative;flex:0 1 410px;gap:5px;padding:3px 4px 3px 10px;border:1px solid #2b4359;background:#07131f;border-radius:7px;min-width:170px}
+.wb-search:focus-within{border-color:#51d5cd;box-shadow:0 0 0 2px #51e4d712}
+.wb-search-icon{color:#7a9ab2;line-height:1;font-size:17px;pointer-events:none}
+.wb-search input{width:100%;min-width:50px;border:0;outline:0;background:transparent;color:#e0eff8;padding:4px 1px;font:12px/1.5 "Segoe UI","Microsoft YaHei",sans-serif;appearance:none}
+.wb-search input::placeholder{color:#6e8aa3}
+.wb-search input::-webkit-search-cancel-button{-webkit-appearance:none}
+.wb-search-count{min-width:39px;text-align:right;white-space:nowrap;color:#7f9db5;font:10px var(--wb-mono);font-variant-numeric:tabular-nums}
+.wb-search button{min-height:25px;min-width:25px;padding:0 5px;border-color:transparent;background:transparent;font-size:15px}
+.wb-search .wb-search-clear{font-size:18px}
+.wb-toolbar .wb-help{font:13px var(--wb-mono);font-weight:700;border-radius:50%;min-width:29px;min-height:29px;padding:4px}
+.deck-stage{min-height:140px;background:radial-gradient(#2840563b .65px,transparent .65px);background-size:16px 16px;isolation:isolate}
+.deck-slide{display:block;padding:12px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#36566e #091623;scroll-behavior:smooth;outline-offset:-3px}
+.deck-slide>svg.wb-canvas{width:var(--wb-canvas-width,1600px);height:var(--wb-canvas-height,960px);min-width:0;max-width:none;max-height:none;display:block;margin:0 auto;background:#07111b;border:1px solid #1c3346;border-radius:9px;filter:none;box-shadow:0 15px 55px #0003;overflow:visible}
+.wb-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:32px;flex:0 0 auto;border-top:1px solid var(--wb-line);padding:6px 23px;background:#0a1724;color:#69869e;font:10px/1.5 "Segoe UI","Microsoft YaHei",sans-serif}
+.wb-footer-context{color:#8da7be;font-family:var(--wb-mono)}
+.wb-evidence{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.wb-evidence-dot{height:5px;width:5px;display:inline-block;background:#e7b769;border-radius:50%;box-shadow:0 0 8px #d5aa431f}
+.wb-footer a{color:#86a6be;text-underline-offset:3px}
+.wb-mobile-hint{display:none;color:#78c3c7}
+:where(button,a,input,select,[tabindex]):focus-visible{outline:2px solid var(--wb-cyan);outline-offset:3px}
+.wb-search input:focus-visible{outline:0}
+.wb-search-match{opacity:1!important}
+g.wb-search-match>rect,rect.wb-search-match{stroke:#ffd383!important;stroke-width:2.3!important}
+g.wb-search-current>rect,rect.wb-search-current{stroke:#69ffee!important;stroke-width:3.8!important;filter:drop-shadow(0 0 3px #36d8d266)}
+text.wb-search-match{fill:#ffe1a1!important;text-decoration:underline;text-decoration-color:#ffe1a1}
+text.wb-search-current{fill:#83fff0!important}
+.mem-card.wb-search-match,.mem-weight-row.wb-search-match,.pure-stage.wb-search-match{outline:2px solid #ffd383;outline-offset:2px}
+.mem-card.wb-search-current,.mem-weight-row.wb-search-current,.pure-stage.wb-search-current{outline-color:#69ffee}
+.wb-toast{position:fixed;bottom:45px;left:50%;transform:translateX(-50%);max-width:calc(100vw - 30px);z-index:200;background:#153447;color:#d9fcf7;border:1px solid #3a8589;border-radius:8px;padding:10px 16px;box-shadow:0 12px 35px #0005;font-size:12px;pointer-events:none}
+.wb-help-dialog{width:min(650px,calc(100vw - 30px));max-height:calc(100dvh - 40px);padding:0;border:1px solid #3a5a73;border-radius:13px;background:#0c1b2a;color:#d5e5ef;box-shadow:0 25px 100px #0009;overflow:auto;font:13px/1.75 "Segoe UI","Microsoft YaHei",sans-serif}
+.wb-help-dialog::backdrop{background:#030b15d9;backdrop-filter:blur(4px)}
+.wb-help-dialog header{display:flex;align-items:start;justify-content:space-between;gap:15px;padding:22px 25px 18px;border-bottom:1px solid #253e52}
+.wb-help-dialog h2{font-size:20px;line-height:1.5;margin:0 0 5px;color:#eff9ff}
+.wb-help-dialog header p{margin:0;color:#86a5bc;font-size:12px}
+.wb-help-content{padding:18px 25px 25px}
+.wb-help-content>p{margin:0 0 17px}
+.wb-help-keys{display:grid;grid-template-columns:130px 1fr;margin:0;border-top:1px solid #223c50}
+.wb-help-keys dt,.wb-help-keys dd{margin:0;padding:9px 0;border-bottom:1px solid #223c50}
+.wb-help-keys dd{color:#9db7ca}
+.wb-help-content kbd{display:inline-block;border:1px solid #3c5870;border-bottom-width:2px;border-radius:4px;min-width:22px;text-align:center;font:11px/1.7 var(--wb-mono);padding:0 5px;background:#142b3e;color:#d6eef9}
+.wb-help-note{padding:11px 14px;border-left:2px solid #d5ae69;background:#241f223d;color:#c7bba8;margin:20px 0 0!important;font-size:12px}
+@media(min-width:1450px){.wb-masthead{min-height:87px}.wb-title{font-size:22px}.deck-bar{gap:12px 25px}.wb-toolbar{padding-top:10px;padding-bottom:10px}}
+@media(max-width:1100px){.wb-masthead{padding:13px 17px;min-height:73px}.wb-title{font-size:18px}.wb-masthead-links{gap:13px}.wb-masthead-links .wb-source{display:none}.deck-bar,.wb-toolbar{padding-left:15px;padding-right:15px}.wb-section-caption{display:none}.deck-tabs{order:2;flex:1 0 100%;padding-bottom:2px}.deck-bar{row-gap:8px}.deck-bar>[id]{margin-left:auto}.shape-guide-bar{padding-left:15px;padding-right:15px}}
+@media(max-width:700px){.wb-masthead{min-height:65px;padding:11px 12px;gap:10px}.wb-monogram{width:36px;height:36px;border-radius:9px}.wb-monogram svg{width:25px;height:25px}.wb-brand{gap:9px}.wb-title{font-size:15px;letter-spacing:0}.wb-eyebrow{font-size:8px;letter-spacing:1px}.wb-masthead-links{gap:8px;font-size:10px}.wb-masthead-links .wb-source,.wb-masthead-links .wb-audit{display:none}.wb-repo{padding:6px 8px}.wb-repo span{display:none}.deck-bar{padding:8px 10px;gap:7px 8px}.deck-bar button{font-size:11px;padding:7px 9px;min-height:32px}.deck-bar>[id]{margin-left:0;max-width:100%;overflow-x:auto}.deck-tabs{gap:5px;flex-basis:100%;order:3;padding-bottom:3px}.model-choice select{max-width:195px;font-size:11px}.deck-bar .model-choice{font-size:10px}.wb-toolbar{padding:7px 10px;flex-wrap:wrap;gap:7px;min-height:44px}.wb-tools-left{flex:1;justify-content:space-between;gap:7px}.wb-zoom{gap:4px}.wb-toolbar button{padding:4px 8px;min-height:29px;font-size:11px}.wb-toolbar .wb-zoom-step{font-size:16px;min-width:29px}.wb-zoom-output{font-size:10px;min-width:35px}.wb-search{flex:1 0 100%;order:2;min-height:34px}.wb-search-count{font-size:10px}.wb-toolbar .wb-help{min-width:27px;min-height:27px}.shape-guide-bar{padding:6px 10px;gap:6px;flex-wrap:nowrap;font-size:10px}.shape-guide-bar p{font-size:9px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;flex-basis:auto}.shape-guide-bar strong{font-size:9px}.shape-guide-bar button{font-size:9px;padding:4px 6px;margin:0}.deck-slide{padding:8px}.deck-slide>svg.wb-canvas{border-radius:6px;margin:0}.wb-footer{padding:5px 10px;min-height:29px;font-size:9px;gap:6px}.wb-footer-context{max-width:50%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.wb-footer .wb-footer-source{display:none}.wb-evidence{font-size:9px;gap:4px}.wb-mobile-hint{display:inline;font-size:9px}.wb-help-dialog header,.wb-help-content{padding:17px}.wb-help-dialog h2{font-size:18px}.wb-help-keys{grid-template-columns:112px 1fr}.wb-toast{bottom:40px;font-size:11px}}
+@media(max-height:650px) and (min-width:701px){.wb-masthead{min-height:61px;padding-top:9px;padding-bottom:9px}.wb-title{font-size:17px}.wb-monogram{height:34px;width:34px}.deck-bar{padding-top:6px;padding-bottom:6px;min-height:45px}.wb-toolbar{padding-top:5px;padding-bottom:5px;min-height:43px}}
+@media(max-width:900px){.wb-masthead{flex-wrap:wrap}.wb-masthead-links{margin-left:auto}.wb-masthead-links .wb-audit{display:none}}
+@media(max-width:700px){.wb-masthead{flex-wrap:wrap;row-gap:8px}.wb-masthead-links{gap:7px}.wb-config-actions{gap:5px}.wb-config-actions button{font-size:10px;min-height:27px;padding:5px 7px}.deck-bar .model-choice select{max-width:195px}.deck-bar{padding-top:9px}.deck-bar .model-choice{gap:4px}.wb-footer-context{max-width:48%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{.wb-skip,.wb-masthead,.wb-toolbar,.wb-footer,.wb-toast,.wb-help-dialog{display:none!important}.deck-stage{background:none;min-height:0}.deck-slide{overflow:visible!important;padding:0!important}.deck-slide>svg.wb-canvas{width:100%!important;height:100%!important;margin:0!important;border:0!important;border-radius:0;box-shadow:none;overflow:visible!important}.wb-search-match,.wb-search-current{outline:none!important}}
